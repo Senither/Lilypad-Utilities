@@ -1,0 +1,13 @@
+name: LilyPad-Utilities
+main: com.senither.lilypadutilities.LilypadUtilities
+version: 0.1
+description: A few utilities for LilyPad
+
+author: Senither
+authros: [Senither]
+
+depend: [LilyPad-Connect]
+
+commands:
+  glist:
+    description: Global list command
