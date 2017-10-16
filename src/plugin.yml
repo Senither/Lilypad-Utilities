@@ -14,3 +14,6 @@ commands:
   staffchat:
     description: Staff chat that works across servers
     aliases: [staffc, sc]
+  alert:
+    description: Boradcasts a message to all servers connected to the network
+    aliases: [galert]

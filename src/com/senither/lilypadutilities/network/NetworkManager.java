@@ -47,6 +47,11 @@ public class NetworkManager implements Runnable {
                 case PLAYER_UPDATE:
                     servers.get(event.getSender()).setPlayers(Integer.parseInt(args[0], 10));
                     break;
+
+                case ALERT_BROADCAST:
+                    plugin.getEnvoyer().broadcast("&6[&eAlert&6] &f" + String.join(" ", args));
+                    break;
+
                 case STAFF_CHAT:
                     for (Player player : plugin.getServer().getOnlinePlayers()) {
                         if (player.hasPermission(Permissions.STAFF_CHAT)) {
