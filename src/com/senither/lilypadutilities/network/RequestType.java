@@ -2,7 +2,8 @@ package com.senither.lilypadutilities.network;
 
 public enum RequestType {
 
-    PLAYER_UPDATE("lily-utils.player-update");
+    PLAYER_UPDATE("lily-utils.player-update"),
+    STAFF_CHAT("lily-utils.staff-chat");
 
     private final String channel;
 

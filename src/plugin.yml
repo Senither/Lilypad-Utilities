@@ -11,3 +11,6 @@ depend: [LilyPad-Connect]
 commands:
   glist:
     description: Global list command
+  staffchat:
+    description: Staff chat that works across servers
+    aliases: [staffc, sc]
