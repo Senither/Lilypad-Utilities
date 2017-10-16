@@ -11,6 +11,8 @@ depend: [LilyPad-Connect]
 commands:
   glist:
     description: Global list command
+  send:
+    description: Sends the given player to the given server
   staffchat:
     description: Staff chat that works across servers
     aliases: [staffc, sc]

@@ -2,6 +2,7 @@ package com.senither.lilypadutilities;
 
 import com.senither.lilypadutilities.commands.AlertBroadcastCommand;
 import com.senither.lilypadutilities.commands.GlobalListCommad;
+import com.senither.lilypadutilities.commands.SendCommand;
 import com.senither.lilypadutilities.commands.StaffChatCommand;
 import com.senither.lilypadutilities.network.NetworkManager;
 import com.senither.lilypadutilities.utils.Envoyer;
@@ -34,6 +35,7 @@ public class LilypadUtilities extends JavaPlugin {
         getCommand("glist").setExecutor(new GlobalListCommad(this));
         getCommand("staffchat").setExecutor(new StaffChatCommand(this));
         getCommand("alert").setExecutor(new AlertBroadcastCommand(this));
+        getCommand("send").setExecutor(new SendCommand(this));
 
         connect = getServer().getServicesManager().getRegistration(Connect.class).getProvider();
         connect.registerEvents(network = new NetworkManager(this));
