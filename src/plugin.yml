@@ -13,6 +13,8 @@ commands:
     description: Global list command
   send:
     description: Sends the given player to the given server
+  find:
+    description: Find the player on the network if they're online
   staffchat:
     description: Staff chat that works across servers
     aliases: [staffc, sc]

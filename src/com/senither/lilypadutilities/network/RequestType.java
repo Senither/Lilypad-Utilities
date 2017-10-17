@@ -2,6 +2,8 @@ package com.senither.lilypadutilities.network;
 
 public enum RequestType {
 
+    FIND_PLAYER("lily-utils.find-player"),
+    FOUND_PLAYER("lily-utils.found-player"),
     PLAYER_UPDATE("lily-utils.player-update"),
     STAFF_CHAT("lily-utils.staff-chat"),
     ALERT_BROADCAST("lily-utils.alert-broadcast");
