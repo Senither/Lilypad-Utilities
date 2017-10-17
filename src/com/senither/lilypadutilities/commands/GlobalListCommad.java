@@ -1,32 +1,23 @@
 package com.senither.lilypadutilities.commands;
 
 import com.senither.lilypadutilities.LilypadUtilities;
+import com.senither.lilypadutilities.contracts.commands.Command;
 import com.senither.lilypadutilities.network.NetworkServer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GlobalListCommad implements CommandExecutor {
-
-    private final LilypadUtilities plugin;
+public class GlobalListCommad extends Command {
 
     public GlobalListCommad(LilypadUtilities plugin) {
-        this.plugin = plugin;
+        super(plugin);
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage("This command can not be used in the console!");
-            return false;
-        }
-
+    public boolean onCommand(CommandSender sender, String[] args) {
         List<String> servers = new ArrayList<>();
 
         long totalPlayers = 0;
