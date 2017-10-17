@@ -37,7 +37,9 @@ public class FindCommand extends Command {
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
             if (LISTENERS.containsKey(playerName)) {
                 LISTENERS.remove(playerName);
-                plugin.getEnvoyer().sendMessage(sender, "&4[&cError&4] &cFained to find any player online called &4" + args[0]);
+                plugin.getEnvoyer().sendMessage(sender,
+                        String.format("&4[&cError&4] &cFained to find any player online called &4%s", args[0])
+                );
             }
         }, 50);
         return true;

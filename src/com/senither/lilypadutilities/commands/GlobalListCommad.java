@@ -23,17 +23,21 @@ public class GlobalListCommad extends Command {
         long totalPlayers = 0;
         for (Map.Entry<String, NetworkServer> item : plugin.getNetwork().getNetworkServers().entrySet()) {
             if (item.getValue().isOffline()) {
-                servers.add("&c" + item.getValue().getName());
+                servers.add(plugin.getConfig().getString("commands.glist.servers.offline")
+                        .replace("{server}", item.getValue().getName()));
                 continue;
             }
             totalPlayers += item.getValue().getPlayers();
-            servers.add(String.format("&a%s &7(&f%s&7)", item.getValue().getName(), item.getValue().getPlayers()));
+            servers.add(plugin.getConfig().getString("commands.glist.servers.online")
+                    .replace("{server}", item.getValue().getName())
+                    .replace("{players}", "" + item.getValue().getPlayers()));
         }
 
-        plugin.getEnvoyer().sendMessage(sender, "&6&l[&e+&6&l] &6Global Server List");
-        plugin.getEnvoyer().sendMessage(sender, String.format("&eThere are a total of &6%s &eplayers online.", totalPlayers));
+        plugin.getEnvoyer().sendMessage(sender, plugin.getConfig().getString("commands.glist.title")
+                .replace("{total}", "" + totalPlayers));
         plugin.getEnvoyer().sendMessage(sender, String.join(
-                "&e, ", servers.stream().sorted().collect(Collectors.toList())
+                plugin.getConfig().getString("commands.glist.separator"),
+                servers.stream().sorted().collect(Collectors.toList())
         ));
         return true;
     }

@@ -34,7 +34,10 @@ public class SendCommand extends Command {
         }
 
         plugin.getNetwork().teleportRequest(player.getName(), server.getName());
-        plugin.getEnvoyer().sendMessage(sender, String.format("&2[&aSuccess&2] &2%s&a has been moved to the &2%s&a server.", player.getName(), server.getName()));
+        plugin.getEnvoyer().sendMessage(sender, plugin.getConfig().getString("commands.send.message")
+                .replace("{player}", player.getName())
+                .replace("{server}", server.getName())
+        );
         return true;
     }
 

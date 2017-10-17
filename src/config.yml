@@ -1,0 +1,22 @@
+
+version: 1
+
+commands:
+  alert:
+    message: "&6[&eAlert&6] &f{message}"
+
+  find:
+    found: "&6[&eFound&6] {player} &ewas found on &6{server}"
+
+  glist:
+    title: "&6&l[&e+&6&l] &6Global Server List\n&eThere are a total of &6{total} &eplayers online."
+    separator: "&e, "
+    servers:
+      online: "&a{server} &7(&f{players}&7)"
+      offline: "&c{server}"
+
+  send:
+    message: "&2[&aSuccess&2] &2{player}&a has been moved to the &2{server}&a server."
+
+  staffchat:
+    message: "&8[&cStaffChat&8] &e{player} &6(&e{server}&6)&e: &f{message}"

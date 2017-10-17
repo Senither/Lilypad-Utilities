@@ -51,15 +51,18 @@ public class NetworkManager implements Runnable {
                     break;
 
                 case ALERT_BROADCAST:
-                    plugin.getEnvoyer().broadcast("&6[&eAlert&6] &f" + String.join(" ", args));
+                    plugin.getEnvoyer().broadcast(plugin.getConfig().getString("commands.alert.message")
+                            .replace("{message}", String.join(" ", args)));
                     break;
 
                 case STAFF_CHAT:
                     for (Player player : plugin.getServer().getOnlinePlayers()) {
                         if (player.hasPermission(Permissions.STAFF_CHAT)) {
-                            plugin.getEnvoyer().sendMessage(player, String.format("&8[&cStaffChat&8] &e%s &6(&e%s&6)&e: &f%s",
-                                    args[0], event.getSender(), String.join(" ", Arrays.copyOfRange(args, 1, args.length))
-                            ));
+                            plugin.getEnvoyer().sendMessage(player, plugin.getConfig().getString("commands.staffchat.message")
+                                    .replace("{player}", args[0])
+                                    .replace("{server}", event.getSender())
+                                    .replace("{message}", String.join(" ", Arrays.copyOfRange(args, 1, args.length)))
+                            );
                         }
                     }
                     break;
@@ -80,7 +83,9 @@ public class NetworkManager implements Runnable {
                         break;
                     }
 
-                    String foundMessage = String.format("&6[&eFound&6] %s &ewas found on &6%s", foundPlayerName, event.getSender());
+                    String foundMessage = plugin.getConfig().getString("commands.find.found")
+                            .replace("{player}", foundPlayerName).replace("{server}", event.getSender());
+
                     for (String playerListener : FindCommand.LISTENERS.get(foundPlayerName.toLowerCase())) {
                         Player player = Bukkit.getPlayer(playerListener);
                         if (player != null) plugin.getEnvoyer().sendMessage(player, foundMessage);

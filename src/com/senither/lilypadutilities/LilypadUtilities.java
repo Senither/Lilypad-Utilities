@@ -27,6 +27,7 @@ public class LilypadUtilities extends JavaPlugin {
             return;
         }
 
+        saveDefaultConfig();
         envoyer = new Envoyer();
 
         getCommand("glist").setExecutor(new GlobalListCommad(this));
