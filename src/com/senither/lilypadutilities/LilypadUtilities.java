@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 public class LilypadUtilities extends JavaPlugin {
 
     public static final Logger LOGGER = Logger.getLogger("LilyPad-Utilities");
+    public static final int CONFIG_VERSION = 2;
 
     private Envoyer envoyer;
     private Connect connect;
@@ -28,6 +29,11 @@ public class LilypadUtilities extends JavaPlugin {
         }
 
         saveDefaultConfig();
+        if (getConfig().getInt("version", 0) != CONFIG_VERSION) {
+            LOGGER.log(Level.SEVERE, "[LilypadUtilities] Config versions does not match, resetting config to the new version...");
+            saveConfig();
+        }
+
         envoyer = new Envoyer();
 
         getCommand("glist").setExecutor(new GlobalListCommad(this));

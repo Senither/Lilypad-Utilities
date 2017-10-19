@@ -1,5 +1,5 @@
 
-version: 1
+version: 2
 
 commands:
   alert:
@@ -20,3 +20,4 @@ commands:
 
   staffchat:
     message: "&8[&cStaffChat&8] &e{player} &6(&e{server}&6)&e: &f{message}"
+    toggle: "&8[&cStaffChat&8] &eYou have toggled staff chat &6{status}&e!"
